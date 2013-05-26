@@ -1,0 +1,14 @@
+{
+	"manifest_version": 2,
+	"name": "Right Click Hear",
+	"description": "Adds a 'Hear' menu item to a text selection menu",
+	"version": "1.0",
+	"permissions": [
+		"contextMenus",
+		"http://*.tfd.com/*",
+		"http://*.thefreedictionary.com/*"
+	],
+	"background": {
+		"scripts": ["hear.js", "jquery-1.9.0.min.js"]
+	}
+}
