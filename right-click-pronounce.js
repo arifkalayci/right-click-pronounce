@@ -6,7 +6,7 @@ function onClick(info, tab) {
 			var re = /play_w2\(\"(\S*?)\"\)/
 			var match = re.exec(html);
 			console.log(match[1]);
-			
+
 			audio = document.createElement("audio");
 			audio["src"] = "http://img.tfd.com/hm/mp3/" + match[1] + ".mp3";
 			document.body.appendChild(audio);
@@ -17,10 +17,10 @@ function onClick(info, tab) {
 			console.log("fail:" + response);
 		}
 	);
-}	
+}
 
 chrome.contextMenus.create({
-	"title": "Hear this word", 
-	"contexts": ["selection"], 
+	"title": "Pronounce this word",
+	"contexts": ["selection"],
 	"onclick": onClick
 });

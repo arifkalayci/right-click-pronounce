@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
-	"name": "Right Click Hear",
-	"description": "Adds a 'Hear' menu item to a text selection menu",
+	"name": "Right Click Pronounce",
+	"description": "Adds a 'Pronounce' menu item to a text selection menu",
 	"version": "1.0",
 	"permissions": [
 		"contextMenus",
@@ -9,6 +9,6 @@
 		"http://*.thefreedictionary.com/*"
 	],
 	"background": {
-		"scripts": ["hear.js", "jquery-1.9.0.min.js"]
+		"scripts": ["right-click-pronounce.js", "jquery-1.9.0.min.js"]
 	}
 }
