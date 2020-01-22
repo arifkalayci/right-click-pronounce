@@ -1,14 +1,14 @@
 {
-	"manifest_version": 2,
-	"name": "Right Click Pronounce",
-	"description": "Adds a 'Pronounce' menu item to a text selection menu",
-	"version": "1.0",
-	"permissions": [
-		"contextMenus",
-		"http://*.tfd.com/*",
-		"http://*.thefreedictionary.com/*"
-	],
-	"background": {
-		"scripts": ["right-click-pronounce.js", "jquery-1.9.0.min.js"]
-	}
+  "manifest_version": 2,
+  "name": "Right Click Pronounce",
+  "description": "Adds a 'Pronounce' menu item to a text selection menu",
+  "version": "1.0",
+  "permissions": [
+    "contextMenus",
+    "http://*.tfd.com/*",
+    "http://*.thefreedictionary.com/*"
+  ],
+  "background": {
+    "scripts": ["right-click-pronounce.js", "jquery-1.9.0.min.js"]
+  }
 }
