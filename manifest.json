@@ -5,8 +5,7 @@
   "version": "1.0",
   "permissions": [
     "contextMenus",
-    "http://*.tfd.com/*",
-    "http://*.thefreedictionary.com/*"
+    "http://www.tfd.com/*"
   ],
   "background": {
     "scripts": ["right-click-pronounce.js"]
