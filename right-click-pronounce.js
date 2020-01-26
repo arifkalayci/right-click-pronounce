@@ -5,10 +5,12 @@ function onClick(info, tab) {
     if (req.readyState === XMLHttpRequest.DONE) {
       if (req.status === 200) {
         var parsedDoc = new DOMParser().parseFromString(req.responseText, 'text/html');
-        var soundPath = parsedDoc.evaluate('//*[@data-snd]', parsedDoc, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.getAttribute('data-snd');
+
+        var soundElement = parsedDoc.evaluate('//*[@class="snd"][@data-snd]', parsedDoc, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
+        var soundPath = soundElement.getAttribute('data-snd');
 
         var audio = document.createElement("audio");
-        audio["src"] = "http://img2.tfd.com/pron/mp3/" + soundPath + ".mp3";
+        audio["src"] = "http://img.tfd.com/hm/mp3/" + soundPath + ".mp3";
         document.body.appendChild(audio);
         audio.play();
       } else {
