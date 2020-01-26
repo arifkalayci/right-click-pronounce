@@ -9,6 +9,6 @@
     "http://*.thefreedictionary.com/*"
   ],
   "background": {
-    "scripts": ["right-click-pronounce.js", "jquery-1.9.0.min.js"]
+    "scripts": ["right-click-pronounce.js"]
   }
 }

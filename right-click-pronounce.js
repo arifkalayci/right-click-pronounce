@@ -1,22 +1,24 @@
 function onClick(info, tab) {
-  $.ajax({
-    url: "http://www.tfd.com/" + info.selectionText,
-  }).done(
-    function(html) {
-      var re = /play_w2\(\"(\S*?)\"\)/
-      var match = re.exec(html);
-      console.log(match[1]);
+  var req = new XMLHttpRequest();
 
-      audio = document.createElement("audio");
-      audio["src"] = "http://img.tfd.com/hm/mp3/" + match[1] + ".mp3";
-      document.body.appendChild(audio);
-      audio.play();
+  req.onreadystatechange = function(){
+    if (req.readyState === XMLHttpRequest.DONE) {
+      if (req.status === 200) {
+        var parsedDoc = new DOMParser().parseFromString(req.responseText, 'text/html');
+        var soundPath = parsedDoc.evaluate('//*[@data-snd]', parsedDoc, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue.getAttribute('data-snd');
+
+        var audio = document.createElement("audio");
+        audio["src"] = "http://img2.tfd.com/pron/mp3/" + soundPath + ".mp3";
+        document.body.appendChild(audio);
+        audio.play();
+      } else {
+        alert('An error occurred. Cannot pronounce.');
+      }
     }
-  ).fail(
-    function(response) {
-      console.log("fail:" + response);
-    }
-  );
+  }
+
+  req.open('GET', "http://www.tfd.com/" + info.selectionText);
+  req.send();
 }
 
 chrome.contextMenus.create({
