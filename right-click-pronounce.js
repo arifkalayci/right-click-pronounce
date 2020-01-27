@@ -1,4 +1,12 @@
+function sendMessageToActiveTab(message) {
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+    chrome.tabs.sendMessage(tabs[0].id, message);
+  });
+}
+
 function onClick(info, tab) {
+  sendMessageToActiveTab({ type: 'show' });
+
   var req = new XMLHttpRequest();
 
   req.onreadystatechange = function(){
@@ -16,6 +24,8 @@ function onClick(info, tab) {
       } else {
         alert('An error occurred. Cannot pronounce.');
       }
+
+      sendMessageToActiveTab({ type: 'hide' });
     }
   }
 

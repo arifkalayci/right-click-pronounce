@@ -9,5 +9,12 @@
   ],
   "background": {
     "scripts": ["right-click-pronounce.js"]
-  }
+  },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["mouseup.js"],
+    "run_at": "document_end",
+    "all_frames": true
+  }],
+  "web_accessible_resources": ["loading.svg"]
 }
